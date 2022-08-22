@@ -1,4 +1,9 @@
-﻿<h1>Counter</h1>
+﻿@{#if DEBUG}
+@using Microsoft.Extensions.Logging
+@inject ILogger<Counter> Log
+@{#endif}
+
+<h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
 
@@ -10,5 +15,8 @@
     private void IncrementCount()
     {
         currentCount++;
+#if DEBUG
+        Log.LogInformation("currentCount={0}",currentCount);
+#endif
     }
 }

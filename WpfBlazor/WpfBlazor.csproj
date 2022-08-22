@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="6.0.486" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

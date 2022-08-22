@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace WpfBlazor
 {
@@ -27,6 +29,14 @@ namespace WpfBlazor
 
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddWpfBlazorWebView();
+
+#if DEBUG
+            serviceCollection.AddBlazorWebViewDeveloperTools();
+
+            serviceCollection.AddLogging(logging => logging.AddDebug());
+#endif
+
+
             Resources.Add("services", serviceCollection.BuildServiceProvider());
         }
     }
