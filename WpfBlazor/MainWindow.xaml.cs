@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using WpfBlazor.Data;
+
 namespace WpfBlazor
 {
     /// <summary>
@@ -36,6 +38,7 @@ namespace WpfBlazor
             serviceCollection.AddLogging(logging => logging.AddDebug());
 #endif
 
+            serviceCollection.AddSingleton<WeatherForecastService>();
 
             Resources.Add("services", serviceCollection.BuildServiceProvider());
         }
